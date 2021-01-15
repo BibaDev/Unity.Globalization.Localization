@@ -5,6 +5,8 @@
 # Description
 Simple, but at the same time effective and optimized implementation of localization of the game via JSON files.
 
+**Warning!** The translation language is specified at the moment of initialization and you CANNOT change the language later. I'm against changing the language dynamically. You can let the user select the language in the game settings and restart game, then the new language will be applied.
+
 You can support me and my projects https://biba.dev/donation
 
 **Key features:**
