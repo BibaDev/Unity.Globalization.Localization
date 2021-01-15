@@ -11,7 +11,7 @@ using UnityEngine.UI;
 namespace BibaDev.Globalization
 {
     
-    [AddComponentMenu("BibaDev/Globalization/TextLocalizer")]
+    [AddComponentMenu("BibaDev/Localization/TextLocalizer")]
     public class TextLocalizer : MonoBehaviour
     {
 
