@@ -1,2 +1,2 @@
-# Unity.Globalization.Localization
+# Unity.Localization
 Simple JSON localization in Unity
