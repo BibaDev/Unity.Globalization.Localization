@@ -1,25 +1,29 @@
 # Unity.Globalization.Localization
 
-# Описание
-Простая, но в то же время эффективная и оптимизированная реализация локализации игры через JSON файлы.
+[РУССКАЯ ВЕРСИЯ](README_RU.md)
 
-**Ключевые особенности:**
-* используется универсальный формат JSON
-* каждый язык в отдельном файле (удобно для перевода разными людьми)
-* возможность создавать любое количество экземпляров (например перевод интерфейса, перевод диалогов, субтитров и т.д)
+# Description
+Simple, but at the same time effective and optimized implementation of localization of the game via JSON files.
 
-# Установка
-Внимание! Необходима библиотека Newtonsoft.Json (https://github.com/jilleJr/Newtonsoft.Json-for-Unity, инструкция установки https://biba.dev/ru/tutorial-install-github-package-via-unity-package-manager)
+You can support me and my projects https://biba.dev/donation
 
-* скопируйте все файлы в папку проекта (Assets)
-* в папке `Resources/Localization/` у вас должна быть папка `General` в которой каждый перевод в отдельном файле (например en.json, ru.json)
-* вызовите инициализацию (должна быть вызвана РАНЬШЕ всех, до запроса перевода), передав текущий язык (наименование / код языка должено сооствествовать имени файла перевода)
+**Key features:**
+* uses a universal JSON format
+* each language in a separate file (convenient for translation by different people)
+* you can create any number of instances (e.g. translation of the interface, dialogs, subtitles, etc.)
+
+# Installing
+Warning! Newtonsoft.Json library is required (https://github.com/jilleJr/Newtonsoft.Json-for-Unity, installation tutorial https://biba.dev/en/tutorial-install-github-package-via-unity-package-manager)
+
+* copy all files into the project folder `Assets`
+* in the folder  `Resources/Localization/` you must have a folder `General` where each translation is in a separate file (e.g. en.json, ru.json)
+* call the initialization (to be called BEFORE all, before the translation request), passing the current language (the name / language code must match the name of the translation file)
 `Localization.Init("en"); // = en.json`
 
-# Принцип работы
-При вызове `Localization.Init("en");` заполняются статические данные и создается статический экземпляр `Localization.General` который вы можете использовать в любом месте проекта.
+# Working principle
+Calling `Localization.Init("en");` fills static data and creates a static instance of `Localization.General` which you can use anywhere in the project.
 
-# Формат файла перевода JSON
+# JSON translation file format
 ```
 {
   "key1": "Valueeeeeeeee e e ee e ee ee e e",
@@ -28,11 +32,12 @@
 }
 ```
 
-# Использование
-* в любом месте проекта для получения перевода по ключу (из папки General) используйте `var value = Localization.General.Get("key");`
-* вы можете создать дополнительно отдельный экземпляр (указав отдельную папку с переводами)
+# Using
+* anywhere in the project, use `var value = Localization.General.Get("key");` to get the translation by key (from the General folder).
+* to translate the component `UnityEngine.UI.Text` there is a class `TextLocalizer`, you can add it by selecting `GameObject` and clicking `Add Component -> BibaDev/Localization/TextLocalizer`, specify the key.
+* you can additionally create a separate copy (by specifying a separate folder with translations)
 ```
-private static Localization _localization;
+private Localization _localization;
 
 ...
 
@@ -42,3 +47,6 @@ _localization = new Localization("Localization/Dialogs");
 
 _label.text = _localization.Get(dialog_key);
 ```
+
+# Compatibility
+Tested on Unity 2020.1.17
