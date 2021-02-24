@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using TMPro;
+using UnityEngine;
 
 /*
  * Created by BibaDev: (https://biba.dev)
@@ -12,12 +12,12 @@ using UnityEngine.UI;
 namespace BibaDev.Globalization
 {
     
-    [AddComponentMenu("BibaDev/Localization/Text Localizer")]
-    public class TextLocalizer : MonoBehaviour
+    [AddComponentMenu("BibaDev/Localization/TextMeshPro Localizer")]
+    public class TextMeshProLocalizer : MonoBehaviour
     {
 
         [SerializeField] private string _key;
-        [SerializeField] private Text _component;
+        [SerializeField] private TextMeshProUGUI _component;
 
         private void Start() => _component.text = Localization.General.Get(in _key);
 
@@ -26,11 +26,12 @@ namespace BibaDev.Globalization
         {
 
             if (_component == null)
-                _component = GetComponent<Text>();
+                _component = GetComponent<TextMeshProUGUI>();
             
         }
 #endif
         
     }
-
+    
 }
+

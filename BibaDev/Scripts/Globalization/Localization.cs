@@ -8,6 +8,7 @@ using UnityEngine;
  * Created by BibaDev: (https://biba.dev)
  * Support me (donation): https://biba.dev/donation
  * Contact me: https://biba.dev/feedback
+ * Follow me: https://twitter.com/BibaDev_
  * GitHub: https://github.com/BibaDev/Unity.Globalization.Localization
  */
 
@@ -43,6 +44,10 @@ namespace BibaDev.Globalization
             
             if (!asset)
                 throw new FileNotFoundException($"Asset '{Path.Combine(path, Language)}' not found!");
+            
+            #if UNITY_EDITOR || TEST
+                Debug.Log($"Localization loaded! Language: {Language}, path: {path}");
+            #endif
 
             _table = JsonConvert.DeserializeObject<Dictionary<string, string>>(asset.text);
 
